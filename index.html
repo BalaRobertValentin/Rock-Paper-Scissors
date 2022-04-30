@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="script.js">
+</head>
+<body>
+    <script>
+        const objects = ['Rock', 'Paper', 'Scissors'];
+        function computerPlay(){
+            let word = objects[Math.floor(Math.random()*objects.length)];
+            return word;
+        }
+        function playRound(playerSelection, computerSelection) {
+                if (playerSelection == computerSelection)
+                    console.log("You both selected " + playerSelection);
+                else if ( (playerSelection == objects[0] && computerSelection == objects[1]) || (playerSelection == objects[1] && computerSelection == objects[2]) || (playerSelection == objects[2] && computerSelection == objects[0]) )
+                    console.log("Computer wins. " + computerSelection + " beats " + playerSelection);
+                else if ( (playerSelection == objects[0] && computerSelection == objects[2]) || (playerSelection == objects[1] && computerSelection == objects[0]) || (playerSelection == objects[2] && computerSelection == objects[1]) )
+                    console.log("You win. " + playerSelection + " beats " + computerSelection);
+
+        }
+        function game()
+        {
+            for(let i = 0; i < 5; i++){
+                let playerSelection = prompt("What do you choose? Rock, Paper or Scissors");
+                const computerSelection = computerPlay();
+                playRound(playerSelection,computerSelection);
+            }
+        }
+        game();
+        
+    
+    </script>
+</body>
+</html>
