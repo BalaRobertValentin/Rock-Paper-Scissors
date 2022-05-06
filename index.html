@@ -6,36 +6,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="script.js" defer> </script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <script>
-        const objects = ['Rock', 'Paper', 'Scissors'];
-        function computerPlay(){
-            let word = objects[Math.floor(Math.random()*objects.length)];
-            return word;
-        }
-        function playRound(playerSelection, computerSelection) {
-                if (playerSelection == computerSelection)
-                    console.log("You both selected " + playerSelection);
-                else if ( (playerSelection == objects[0] && computerSelection == objects[1]) || (playerSelection == objects[1] && computerSelection == objects[2]) || (playerSelection == objects[2] && computerSelection == objects[0]) )
-                    console.log("Computer wins. " + computerSelection + " beats " + playerSelection);
-                else if ( (playerSelection == objects[0] && computerSelection == objects[2]) || (playerSelection == objects[1] && computerSelection == objects[0]) || (playerSelection == objects[2] && computerSelection == objects[1]) )
-                    console.log("You win. " + playerSelection + " beats " + computerSelection);
 
-        }
-        function game()
-        {
-            for(let i = 0; i < 5; i++){
-                let playerSelection = prompt("What do you choose? Rock, Paper or Scissors");
-                const computerSelection = computerPlay();
-                playRound(playerSelection,computerSelection);
-            }
-        }
-    </script>
-    <!-- your HTML file: -->
-    <h1>
-          THE TITLE OF YOUR WEBPAGE
-    </h1>
-    <button id="btn">Click Me Too</button>
+    <nav class="navbar">
+        <div class="container">
+           <h1>ROCK, PAPER, SCISSORS</h1>
+        </div>
+    </nav>
+    <header class="game">
+        <div class="container">
+            <div class="firstbox">
+                <a>Human</a>
+                <div class="containerScore">
+                    <img src="https://lh3.googleusercontent.com/znSY4yfIBbgrL7EHwHYhQPpGq4nouWNpzRBWezSB5mYEfVsxSEITOHUDMKOUFQEgBoT05A_4bHHrytythGi-6tWPGvyyiDkCWRZaOYZl8-wm8z_9WO5nxP9QyzkyTGLlvY5VTD_8RA=s100-p-k" alt="human" width="100" height="100">
+                    <div id="scoreHuman">Human Score: 0</div>
+                </div>
+                <div class="containerBoxes">
+                    <button id="rockHuman" class="box rockHuman">
+                        <img src="https://lh3.googleusercontent.com/ecrAU7OiyevscQ3P46X9PRQOkNYo-ugz-kz0nHdDXjOz0asbieMSZmt2D6JfaBX3Llzaqd3Ez0c_rb-_kjKO9yrysqalVFI7Uov58G6tZycGrtXQjbW6C8VPRuYdBQ-dtz_ONHlANw=s120-p-k" alt="Rock">
+                    </button>
+                    <button id="paperHuman" class="box paperHuman">
+                        <img src="https://lh3.googleusercontent.com/e-gehivTQxToBgQPdK6TnfvAf60iGMWLrvrJbP4PBS-eFWOU-3mdsB6mH-zVAyE4bminVGo3mgmRkFDmZjVZJuD-_xNQJohlOuKQTj_YA-6dUlyecaSd59AT83Rw2Yn5NxeGejUhfQ=s120-p-k" alt="Paper">
+                    </button>
+                    <button id="scissorsHuman" class="box scissorsHuman">
+                        <img src="https://lh3.googleusercontent.com/uCrQeA5VPPHPfkVJgL1oFd3q-gQ6Lc9PV88rDo9pGnJYRSrJf59PQuo1jl0scc5mPTVxEQiJBbCCDglgGksu82k-0ogUGiZBmF89yS7IszSxeNoA0ofisaXxqH_rVwmrwBeFzSi_lw=s120-p-k" alt="Scissors">
+                    </button>
+                </div>
+
+            </div>
+            <div class="secondbox">
+                <a>Computer</a>
+                <div class="containerScore">
+                    <img src="https://lh3.googleusercontent.com/H2wBbzz-2LTxFcI7oFuhlT65FAB6xdqv2q_-a6_0z4G-xWOAhwNe2gabrycGfIs9bmCyf3z8iTDB8VRBdPeNcWYZhunbsL155he36FxEuFTmiR792jp4w8q0T-3W5MXnfqcF4rzpQg=s100-p-k" alt="computer" width="100" height="100">
+                    <div id="scoreComputer">Computer Score: 0</div>
+                </div>
+                <div class="containerBoxes">
+                    <button id="rockComputer" class="box rockComputer">
+                        <img src="https://lh3.googleusercontent.com/ecrAU7OiyevscQ3P46X9PRQOkNYo-ugz-kz0nHdDXjOz0asbieMSZmt2D6JfaBX3Llzaqd3Ez0c_rb-_kjKO9yrysqalVFI7Uov58G6tZycGrtXQjbW6C8VPRuYdBQ-dtz_ONHlANw=s120-p-k" alt="Rock">
+                    </button>
+                    <button id="paperComputer" class="box paperComputer">
+                        <img src="https://lh3.googleusercontent.com/e-gehivTQxToBgQPdK6TnfvAf60iGMWLrvrJbP4PBS-eFWOU-3mdsB6mH-zVAyE4bminVGo3mgmRkFDmZjVZJuD-_xNQJohlOuKQTj_YA-6dUlyecaSd59AT83Rw2Yn5NxeGejUhfQ=s120-p-k" alt="Paper">
+                    </button>
+                    <button id="scissorsComputer" class="box scissorsComputer">
+                        <img src="https://lh3.googleusercontent.com/uCrQeA5VPPHPfkVJgL1oFd3q-gQ6Lc9PV88rDo9pGnJYRSrJf59PQuo1jl0scc5mPTVxEQiJBbCCDglgGksu82k-0ogUGiZBmF89yS7IszSxeNoA0ofisaXxqH_rVwmrwBeFzSi_lw=s120-p-k" alt="Scissors">
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="scoreboard">
+            <a>Check the scoreboard here </a>
+        </div>
+    </header>
+
+
+
 </body>
 </html>
