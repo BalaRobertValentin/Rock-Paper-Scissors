@@ -98,14 +98,14 @@ function playRound(playerSelection, computerSelection) {
             console.log("Computer wins. " + computerSelection + " beats " + playerSelection);
             computerScore ++;
             console.log("Computer score is "+ computerScore);
-            document.getElementById("scoreComputer").innerText = "Computer score: " + computerScore
+            document.getElementById("scoreComputer").innerText = "Computer Score: " + computerScore
             document.getElementById("scoreboard").innerText = "Computer wins. " + computerSelection + " beats " + playerSelection
         }
         else if ( (playerSelection == objects[0] && computerSelection == objects[2]) || (playerSelection == objects[1] && computerSelection == objects[0]) || (playerSelection == objects[2] && computerSelection == objects[1]) ){
             console.log("You win. " + playerSelection + " beats " + computerSelection);
             humanScore ++;
             console.log("Human score is " + humanScore);
-            document.getElementById("scoreHuman").innerText = "Human score: " + humanScore
+            document.getElementById("scoreHuman").innerText = "Human Score: " + humanScore
             document.getElementById("scoreboard").innerText = "You win. " + playerSelection + " beats " + computerSelection
         }
         if (computerScore == 5){
@@ -159,23 +159,23 @@ function getClicked(e){
         computerSelection = computerTrail();
         
     }
-    if (computerScore == 5){
-        sleep(3000);
-        setTimeout(function () { location.reload(true); }, 100);
-        getClicked();
-    }
-    else if (humanScore == 5){
-        sleep(3000);
-        setTimeout(function () { location.reload(true); }, 100);
-        getClicked();
-    }
     playRound(playerSelection,computerSelection );
 
 }
  function removeTransition(e) {
-    if (e.propertyName !== 'transform') return;
+    if (e.propertyName !== 'transform') return;{
         e.target.classList.remove('clicking');
+    }
+    if (computerScore == 5 || humanScore == 5){
+            reset();
+    }
 }
-const buttons = document.querySelectorAll('button');
-buttons.forEach(button => button.addEventListener('click', getClicked));
-buttons.forEach(button => button.addEventListener('transitionend', removeTransition));
+
+function reset(){
+    sleep(3000);
+    setTimeout(function () { location.reload(true); }, 100);
+}
+
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach(button => button.addEventListener('click', getClicked));
+    buttons.forEach(button => button.addEventListener('transitionend', removeTransition));
